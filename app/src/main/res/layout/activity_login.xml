@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0E9CC"
+    tools:context=".login.activity.Login">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:padding="30dp"
+        android:text="Login"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="197dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/l"/>
+    <TextView
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+    <EditText
+        android:id="@+id/l_username"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btnlg"
+        android:hint="example@gmail.com"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black" />
+    <TextView
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:text="password"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+    <EditText
+        android:id="@+id/l_password"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btnlg"
+        android:hint="*********"
+        android:paddingLeft="15dp"
+        android:inputType="textPassword"
+        android:textColor="@color/black" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnlogin"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnlp"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Anda belum punya akun?"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="normal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="Register Disini!"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginTop="5dp"
+        android:textStyle="normal"
+        android:id="@+id/btnRegis"/>
+
+</LinearLayout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0E9CC"
+    tools:context=".detail.activity.rinciandetail">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/arrow"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="Tenda Kemping"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/tenda1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Nama barang"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text=" : 12"
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Lama sewa"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text=" : "
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Tanggal sewa"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text=" : "
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Tanggal kembali"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text=" : "
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Subtotal"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text=" :"
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Kirim ke No Rek"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="210dp"
+            android:layout_height="30dp"
+            android:text=" : 7486354567859(Bri)"
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Via Apk Dana"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="45dp" />
+        <TextView
+            android:layout_width="210dp"
+            android:layout_height="30dp"
+            android:text=" : 082291799047"
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/kmbli"
+        android:onClick="kmbli"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btnlp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:text="Kembali"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

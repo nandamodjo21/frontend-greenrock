@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0E9CC"
+    tools:context=".beranda.activity.home">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/l"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"/>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:text="    Selamat Datang Di Green Rock Adventure"
+        android:textSize="34dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tenda"
+        android:onClick="tenda"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btnlp"
+        android:text="Tenda Kemping"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cooking"
+        android:onClick="cooking"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnlp"
+        android:text="CookingSet"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/alat"
+        android:onClick="alat"
+        android:layout_width="340dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnlp"
+        android:text="Alat Lainnya"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="120dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/h"
+            android:layout_marginLeft="60dp"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/d"
+            android:layout_marginLeft="110dp"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="99dp"
+            android:src="@drawable/p"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0E9CC"
+    tools:context=".penyewaan.activity.Penyewa">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Masuk"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/n_barang"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:hint="Nama Barang"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/l_sewa"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:hint="Lama sewa"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/t_kembali"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:hint="tanggal kembali"
+        android:textColor="@color/black"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/psn"
+        android:onClick="psn"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btnlp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:text="Pesan"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

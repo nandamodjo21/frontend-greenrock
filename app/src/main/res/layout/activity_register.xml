@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0E9CC"
+    tools:context=".register.activity.Register">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Nama Lengkap"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/nama"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:paddingLeft="15dp"
+                android:hint="Nama"
+                android:inputType="text"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:textColorHint="@color/gray"
+                android:hint="example@gmail.com"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="No Telpon"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+
+                android:id="@+id/telp"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:textColorHint="@color/gray"
+                android:hint="telepon"
+                android:inputType="phone"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Alamat"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/alamat"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:paddingLeft="15dp"
+                android:hint="alamat"
+                android:inputType="text"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:paddingLeft="15dp"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="367dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="NIK"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/nik"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btnlg"
+                android:paddingLeft="15dp"
+                android:hint="nik"
+                android:inputType="number"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegister"
+                android:layout_width="340dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="25dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btnstyle"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:inputType="number"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
