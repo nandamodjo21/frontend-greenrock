@@ -83,12 +83,12 @@ public class Register extends AppCompatActivity {
     }
 
 
-//    @SuppressLint("NotConstructor")
+    @SuppressLint("NotConstructor")
     private void Register() throws JSONException{
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("nama",nama);
         jsonObject.put("email",email);
-        jsonObject.put("nohp",Nohp);
+        jsonObject.put("noHp",Nohp);
         jsonObject.put("alamat",Alamat);
         jsonObject.put("password",Password);
         jsonObject.put("nik",Nik);
@@ -99,7 +99,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    if (response.getBoolean("true")){
+                    if (response.getInt("code")!=0){
                         startActivity(new Intent(getApplicationContext(), Login.class));
                         finish();
                         Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();

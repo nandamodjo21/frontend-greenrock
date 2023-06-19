@@ -9,8 +9,9 @@ public class SharedPrefManager {
 
     private  static final String SHARED_PREF_NAME = "KelasA";
     private static final  String KEY_ID = "id_user";
+    private static final String KEY_NAME = "nama_lengkap";
     private static final  String KEY_EMAIL = "email";
-    private static final  String KEY_LEVEL = "level";
+    private static final  String KEY_LEVEL = "role_id";
 
 
 
@@ -29,11 +30,12 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public  boolean session(String id_user, String email, String role){
+    public  boolean session(String id_user, String nama, String email, String role){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_ID, id_user);
+        editor.putString(KEY_NAME, nama);
         editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_LEVEL, role);
 
@@ -62,7 +64,11 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_ID, null);
     }
-    public String getKeyUsername(){
+    public String getKeyName(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_NAME,null);
+    }
+    public String getKeyEmail(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_EMAIL, null);
     }

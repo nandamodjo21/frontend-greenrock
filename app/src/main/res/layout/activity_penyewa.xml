@@ -41,7 +41,20 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:hint="tanggal kembali"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:inputType="date"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="pilih tanggal"
+        android:background="@drawable/btnlp"
+        android:id="@+id/btntgl"
+        />
+
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/psn"

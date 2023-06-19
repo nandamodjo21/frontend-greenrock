@@ -143,8 +143,9 @@
                 android:paddingLeft="15dp"
                 android:hint="nik"
                 android:inputType="number"
-                android:textColorHint="@color/gray"
-                android:textColor="@color/black" />
+                android:textColorHint="@color/gray"/>
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRegister"
                 android:layout_width="340dp"
