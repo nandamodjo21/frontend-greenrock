@@ -91,7 +91,10 @@ public class Login extends AppCompatActivity {
              try {
               JSONObject js = response.getJSONObject("data");
               if (response.getInt("code")!=0){
-                  SharedPrefManager.getInstance(getApplicationContext()).session(js.getString("id_user"),js.getString("email"),js.getString("nama_lengkap"),js.getString("role"));
+                  SharedPrefManager.getInstance(getApplicationContext()).session(js.getString("id_user")
+                          ,js.getString("email")
+                          ,js.getString("nama_lengkap")
+                          ,js.getString("role"));
                   Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
                   startActivity(new Intent(getApplicationContext(),Penyewa.class));
               } else {

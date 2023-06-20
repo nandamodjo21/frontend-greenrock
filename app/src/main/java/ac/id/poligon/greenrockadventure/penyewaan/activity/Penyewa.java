@@ -98,16 +98,16 @@ public class Penyewa extends AppCompatActivity {
 
     private void aksiPesan() throws JSONException{
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("email", SharedPrefManager.getInstance(this).getKeyId());
-        jsonObject.put("nama_barang",nm_barang);
-        jsonObject.put("lama_sewa",lm_sewa);
-        jsonObject.put("tgl_kembali",tg_back);
+        jsonObject.put("user", SharedPrefManager.getInstance(this).getKeyId());
+        jsonObject.put("barang",nm_barang);
+        jsonObject.put("lamaSewa",lm_sewa);
+        jsonObject.put("tglKembali",tg_back);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, API_SERVER.url_pesan, jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    if (response.getBoolean("status")){
+                    if (response.getInt("code")!=0){
 
                         startActivity(new Intent(getApplicationContext(), rinciandetail.class));
                         finish();
