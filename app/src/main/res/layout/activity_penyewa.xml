@@ -11,11 +11,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Masuk"
+        android:text="PESAN"
         android:textSize="30dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textStyle="bold"
+        android:textStyle="bold|normal"
         android:layout_marginTop="20dp"/>
 
     <EditText
@@ -25,14 +25,18 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:hint="Nama Barang"
+        android:inputType="text"
+        android:textColorHint="@color/gray"
         android:textColor="@color/black"/>
     <EditText
         android:id="@+id/l_sewa"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:textColorHint="@color/gray"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:hint="Lama sewa"
+        android:inputType="text"
         android:textColor="@color/black"/>
     <EditText
         android:id="@+id/t_kembali"
@@ -42,13 +46,15 @@
         android:layout_marginTop="10dp"
         android:hint="tanggal kembali"
         android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         android:inputType="date"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="pilih tanggal"
+        android:text="tanggal"
+        android:textStyle="bold|normal"
         android:background="@drawable/btnlp"
         android:id="@+id/btntgl"
         />
@@ -65,6 +71,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
+        android:textStyle="normal|bold|italic"
         android:text="Pesan"
         android:textColor="@color/white"/>
 

@@ -20,7 +20,7 @@
             android:name=".informasi.activity.informasi"
             android:exported="false" />
         <activity
-            android:name=".detail.activity.rinciandetail"
+            android:name=".detail.activity.RincianSewa"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

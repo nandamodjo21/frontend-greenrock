@@ -21,17 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ac.id.poligon.greenrockadventure.R;
-import ac.id.poligon.greenrockadventure.detail.activity.rinciandetail;
-import ac.id.poligon.greenrockadventure.login.interfaces.I_login;
-import ac.id.poligon.greenrockadventure.login.responses.R_login;
 import ac.id.poligon.greenrockadventure.penyewaan.activity.Penyewa;
 import ac.id.poligon.greenrockadventure.register.activity.Register;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
-import ac.id.poligon.greenrockadventure.servis.NetworkUtils;
-import ac.id.poligon.greenrockadventure.servis.Server;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 public class Login extends AppCompatActivity {
     private EditText e_email, e_password;
@@ -55,6 +48,11 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Register.class));
             }
         });
+
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            startActivity(new Intent(getApplicationContext(),Penyewa.class));
+            finish();
+        }
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override

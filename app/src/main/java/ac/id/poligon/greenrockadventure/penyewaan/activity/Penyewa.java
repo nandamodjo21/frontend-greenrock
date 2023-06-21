@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import ac.id.poligon.greenrockadventure.R;
-import ac.id.poligon.greenrockadventure.detail.activity.rinciandetail;
+import ac.id.poligon.greenrockadventure.detail.activity.RincianSewa;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 
@@ -48,6 +48,7 @@ public class Penyewa extends AppCompatActivity {
         tgl_kembali = findViewById(R.id.t_kembali);
         btnTgl = findViewById(R.id.btntgl);
         pesan = findViewById(R.id.psn);
+        tgl_kembali.setEnabled(false);
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
@@ -109,7 +110,7 @@ public class Penyewa extends AppCompatActivity {
                 try {
                     if (response.getInt("code")!=0){
 
-                        startActivity(new Intent(getApplicationContext(), rinciandetail.class));
+                        startActivity(new Intent(getApplicationContext(), RincianSewa.class));
                         finish();
                         Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
                     } else {
