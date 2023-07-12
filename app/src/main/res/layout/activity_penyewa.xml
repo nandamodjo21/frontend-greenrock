@@ -29,6 +29,16 @@
         android:textColorHint="@color/gray"
         android:textColor="@color/black"/>
     <EditText
+        android:id="@+id/jml"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:hint="Stok"
+        android:inputType="number"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"/>
+    <EditText
         android:id="@+id/l_sewa"
         android:layout_width="300dp"
         android:layout_height="50dp"

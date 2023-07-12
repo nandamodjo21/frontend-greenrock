@@ -57,9 +57,9 @@
         <EditText
             android:gravity="center"
             android:id="@+id/nm_barang"
+            android:textSize="17dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-
             android:layout_marginLeft="25dp"
             android:hint="Nama Barang"
             android:textColor="@color/black"
@@ -86,9 +86,36 @@
             android:id="@+id/lm_sewa"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-
+            android:textSize="17dp"
             android:layout_marginLeft="25dp"
             android:hint="Lama sewa"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stok      :"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="100dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:gravity="center"
+            android:id="@+id/stok"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="17dp"
+            android:layout_marginLeft="25dp"
+            android:hint="stok"
             android:textColor="@color/black"
             android:textColorHint="@color/gray" />
     </LinearLayout>
@@ -113,7 +140,7 @@
             android:id="@+id/tgl_sewa"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-
+            android:textSize="17dp"
             android:layout_marginLeft="25dp"
             android:hint="tanggal sewa"
             android:textColor="@color/black"
@@ -142,18 +169,51 @@
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:hint="Tanggal Kembali"
+            android:textSize="17dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status pesanan    :"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"/>
 
-
+        <TextView
+            android:id="@+id/status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pesanan sedang di proses"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginLeft="30dp"/>
+        <EditText
+            android:gravity="center"
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:hint=""
+            android:textColor="#F0E9CC"
+            android:textColorHint="@color/gray" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="17dp">
 
         <TextView
             android:layout_width="130dp"

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,10 +29,11 @@ import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 
 public class RincianSewa extends AppCompatActivity {
 
-    private EditText nm_barang,lm_sewa,tg_sewa,tg_back;
+    private EditText nm_barang,stok,lm_sewa,tg_sewa,tg_back,sts;
+    private TextView status,status2;
 
     List<String>list;
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +41,18 @@ public class RincianSewa extends AppCompatActivity {
 
         //insialisasi/deklarasi
         nm_barang = findViewById(R.id.nm_barang);
+        stok = findViewById(R.id.stok);
         lm_sewa = findViewById(R.id.lm_sewa);
         tg_sewa = findViewById(R.id.tgl_sewa);
         tg_back = findViewById(R.id.tgl_kembali);
+        sts = findViewById(R.id.status);
+        status = findViewById(R.id.status1);
+
+
 
         //disabled edittext
         nm_barang.setEnabled(false);
+        stok.setEnabled(false);
         lm_sewa.setEnabled(false);
         tg_sewa.setEnabled(false);
         tg_back.setEnabled(false);
@@ -63,13 +71,21 @@ public class RincianSewa extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++){
                         JSONObject js = jsonArray.getJSONObject(i);
                         nm_barang.setText(js.getString("nama_barang"));
+                        stok.setText(js.getString("stok"));
                         lm_sewa.setText(js.getString("lama_sewa"));
                         tg_sewa.setText(js.getString("tgl_sewa"));
                         tg_back.setText(js.getString("tgl_kembali"));
+                        String statusValue = js.getString("status");
+                        sts.setText(statusValue);
+                        if (statusValue.equals("0")){
+                            status.setText("pesanan sedang diproses");
+                        } else {
+                            status.setText("pesanan selesai");
+                        }
                     }
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
             }
         }, new Response.ErrorListener() {
             @Override

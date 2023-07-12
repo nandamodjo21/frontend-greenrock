@@ -92,7 +92,8 @@ public class Login extends AppCompatActivity {
                   SharedPrefManager.getInstance(getApplicationContext()).session(js.getString("id_user")
                           ,js.getString("email")
                           ,js.getString("nama_lengkap")
-                          ,js.getString("role"));
+                          ,js.getString("role")
+                  ,js.getString("nik"));
                   Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
                   startActivity(new Intent(getApplicationContext(),Penyewa.class));
               } else {

@@ -70,7 +70,8 @@
             android:layout_gravity="center"
             android:src="@drawable/h"
             android:layout_marginLeft="60dp"/>
-        <ImageView
+        <ImageButton
+            android:id="@+id/tampilan"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_gravity="center"

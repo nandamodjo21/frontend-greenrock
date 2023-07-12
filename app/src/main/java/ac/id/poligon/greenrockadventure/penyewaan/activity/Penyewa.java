@@ -3,6 +3,7 @@ package ac.id.poligon.greenrockadventure.penyewaan.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,16 +35,19 @@ import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 public class Penyewa extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
-    private EditText nama_barang,lama_sewa,tgl_kembali;
+    private EditText nama_barang,stok,lama_sewa,tgl_kembali;
     private AppCompatButton pesan;
     private Button btnTgl;
-    private String nm_barang,lm_sewa,tg_back;
+    private String nm_barang,stokbarang,lm_sewa,tg_back;
     private RequestQueue requestQueue;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_penyewa);
         nama_barang = findViewById(R.id.n_barang);
+        stok = findViewById(R.id.jml);
         lama_sewa = findViewById(R.id.l_sewa);
         tgl_kembali = findViewById(R.id.t_kembali);
         btnTgl = findViewById(R.id.btntgl);
@@ -62,15 +66,18 @@ public class Penyewa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 nm_barang = nama_barang.getText().toString().trim();
+                stokbarang = stok.getText().toString().trim();
                 lm_sewa = lama_sewa.getText().toString().trim();
                 tg_back = tgl_kembali.getText().toString().trim();
 
                 if (nm_barang.equals("")){
                     nama_barang.setError("nama barang harus di isi");
+                } else if (stokbarang.equals("")){
+                    stok.setError("data harus di isi");
                 } else if (lm_sewa.equals("")){
-                    lama_sewa.setError("data harus di isi");
+                    lama_sewa.setError("tanggal harus di isi");
                 } else if (tg_back.equals("")){
-                    tgl_kembali.setError("tanggal harus di isi");
+                 tgl_kembali.setError("tanggal wajib diisi");
                 } else {
                     try {
                         aksiPesan();
@@ -101,8 +108,11 @@ public class Penyewa extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("user", SharedPrefManager.getInstance(this).getKeyId());
         jsonObject.put("barang",nm_barang);
+        jsonObject.put("stok",stokbarang);
         jsonObject.put("lamaSewa",lm_sewa);
         jsonObject.put("tglKembali",tg_back);
+
+        System.out.println(jsonObject);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, API_SERVER.url_pesan, jsonObject, new Response.Listener<JSONObject>() {
             @Override
