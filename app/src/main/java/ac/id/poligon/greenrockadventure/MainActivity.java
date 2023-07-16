@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run(){
-            startActivity(new Intent(getApplicationContext(), SpinnerActivity.class));
+            startActivity(new Intent(getApplicationContext(), home.class));
             finish();
         }
         }, 2500L);

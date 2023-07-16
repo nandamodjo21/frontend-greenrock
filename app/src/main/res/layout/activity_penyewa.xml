@@ -18,16 +18,13 @@
         android:textStyle="bold|normal"
         android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/n_barang"
+
+    <Spinner
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:id="@+id/n_barang"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:hint="Nama Barang"
-        android:inputType="text"
-        android:textColorHint="@color/gray"
-        android:textColor="@color/black"/>
+        android:layout_marginTop="10dp"/>
     <EditText
         android:id="@+id/jml"
         android:layout_width="300dp"

@@ -8,9 +8,11 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,13 +20,17 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 import ac.id.poligon.greenrockadventure.R;
@@ -35,8 +41,11 @@ import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 public class Penyewa extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
-    private EditText nama_barang,stok,lama_sewa,tgl_kembali;
+    private Spinner nama_barang;
+    private EditText stok,lama_sewa,tgl_kembali;
     private AppCompatButton pesan;
+    private ArrayAdapter<String> adapter;
+    private List<String> data;
     private Button btnTgl;
     private String nm_barang,stokbarang,lm_sewa,tg_back;
     private RequestQueue requestQueue;
@@ -54,7 +63,43 @@ public class Penyewa extends AppCompatActivity {
         pesan = findViewById(R.id.psn);
         tgl_kembali.setEnabled(false);
 
+        data = new ArrayList<>();
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        nama_barang.setAdapter(adapter);
+
+
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, API_SERVER.url_spin, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+                    for (int i = 0; i <jsonArray.length(); i++){
+                        JSONObject js = jsonArray.getJSONObject(i);
+
+                        String namaBarang = js.getString("nama_barang");
+                        data.add(namaBarang);
+                    }
+                    adapter.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        RequestQueue requestQueue1 = Volley.newRequestQueue(this); requestQueue1.add(stringRequest);
 
         btnTgl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,14 +110,12 @@ public class Penyewa extends AppCompatActivity {
         pesan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nm_barang = nama_barang.getText().toString().trim();
+
                 stokbarang = stok.getText().toString().trim();
                 lm_sewa = lama_sewa.getText().toString().trim();
                 tg_back = tgl_kembali.getText().toString().trim();
 
-                if (nm_barang.equals("")){
-                    nama_barang.setError("nama barang harus di isi");
-                } else if (stokbarang.equals("")){
+              if (stokbarang.equals("")){
                     stok.setError("data harus di isi");
                 } else if (lm_sewa.equals("")){
                     lama_sewa.setError("tanggal harus di isi");
@@ -107,7 +150,7 @@ public class Penyewa extends AppCompatActivity {
     private void aksiPesan() throws JSONException{
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("user", SharedPrefManager.getInstance(this).getKeyId());
-        jsonObject.put("barang",nm_barang);
+        jsonObject.put("barang",nama_barang);
         jsonObject.put("stok",stokbarang);
         jsonObject.put("lamaSewa",lm_sewa);
         jsonObject.put("tglKembali",tg_back);
