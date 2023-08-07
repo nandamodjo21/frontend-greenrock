@@ -58,5 +58,16 @@
         android:textStyle="normal|bold|italic"
         android:text="Pesan"
         android:textColor="@color/white"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bck"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btnstyle"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal|bold|italic"
+        android:text="kembali"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

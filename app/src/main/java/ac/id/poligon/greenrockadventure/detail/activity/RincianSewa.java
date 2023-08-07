@@ -33,8 +33,8 @@ import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 
 public class RincianSewa extends AppCompatActivity {
 
-    private EditText nm_barang,stok,lm_sewa,tg_sewa,sts;
-    private TextView status,status2;
+
+    private TextView nm_barang,stok,lm_sewa, tg_sw, status;
     private String penyewa;
     private AppCompatButton lst;
 
@@ -46,12 +46,24 @@ public class RincianSewa extends AppCompatActivity {
         setContentView(R.layout.activity_rinciandetail);
 
         //insialisasi/deklarasi
-        nm_barang = findViewById(R.id.nm_barang);
-        stok = findViewById(R.id.stok);
-        lm_sewa = findViewById(R.id.lm_sewa);
-        tg_sewa = findViewById(R.id.tgl_sewa);
-        sts = findViewById(R.id.status);
+        nm_barang = findViewById(R.id.nmBarang);
+        stok = findViewById(R.id.stk);
+       lm_sewa = findViewById(R.id.lmSewa);
+        tg_sw = findViewById(R.id.tglSw);
         status = findViewById(R.id.status1);
+
+//        Intent intent = getIntent();
+//
+//        if (intent != null){
+//
+//            String namaBarang = intent.getStringExtra("nama_barang");
+//            String lamaSewa = intent.getStringExtra("lama_sewa");
+//            String stokBarang = intent.getStringExtra("stok");
+//
+//            nm_barang.setText(namaBarang);
+//            stok.setText(stokBarang);
+//            lm_sewa.setText(lamaSewa);
+//        }
 
 
         lst = findViewById(R.id.listdetail);
@@ -63,13 +75,7 @@ public class RincianSewa extends AppCompatActivity {
             }
         });
 
-        //disabled edittext
-        nm_barang.setEnabled(false);
-        stok.setEnabled(false);
-        lm_sewa.setEnabled(false);
-        tg_sewa.setEnabled(false);
-
-        getData();
+      getData();
     }
 
     private void showPopup(RincianSewa activity, String title, String message){
@@ -101,11 +107,11 @@ public class RincianSewa extends AppCompatActivity {
                         nm_barang.setText(js.getString("nama_barang"));
                         stok.setText(js.getString("stok"));
                         lm_sewa.setText(js.getString("lama_sewa"));
-                        tg_sewa.setText(js.getString("tgl_sewa"));
+                        tg_sw.setText(js.getString("tgl_sewa"));
                         String statusValue = js.getString("status");
                         penyewa = js.getString("id_user");
 
-                        sts.setText(statusValue);
+                        status.setText(statusValue);
                         if (statusValue.equals("0")){
                             status.setText("pesanan sedang diproses");
                         } else {

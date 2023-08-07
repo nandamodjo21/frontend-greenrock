@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -27,13 +25,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import ac.id.poligon.greenrockadventure.R;
+import ac.id.poligon.greenrockadventure.barang.activity.Tenda;
+import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.detail.activity.RincianSewa;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
@@ -43,7 +40,7 @@ public class Penyewa extends AppCompatActivity {
 //    private SimpleDateFormat dateFormatter;
     private Spinner nama_barang;
     private EditText stok,lama_sewa;
-    private AppCompatButton pesan;
+    private AppCompatButton pesan,backto;
     private ArrayAdapter<String> adapter;
     private List<String> data;
     private Button btnTgl;
@@ -61,6 +58,7 @@ public class Penyewa extends AppCompatActivity {
 //        tgl_kembali = findViewById(R.id.t_kembali);
 //        btnTgl = findViewById(R.id.btntgl);
         pesan = findViewById(R.id.psn);
+        backto = findViewById(R.id.bck);
 //        tgl_kembali.setEnabled(false);
 
         data = new ArrayList<>();
@@ -127,6 +125,13 @@ public class Penyewa extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+
+        backto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Home.class));
             }
         });
     }

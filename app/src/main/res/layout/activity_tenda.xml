@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F0E9CC"
-    tools:context=".barang.activity.tenda">
+    tools:context=".barang.activity.Tenda">
 
     <ImageView
+        android:id="@+id/balik"
         android:layout_width="35dp"
         android:layout_height="50dp"
         android:src="@drawable/arrow"
@@ -72,7 +73,6 @@
                 android:background="@color/white">
                 <ImageView
                     android:id="@+id/tnda2"
-                    android:onClick="tnda2"
                     android:layout_width="130dp"
                     android:layout_height="90dp"
                     android:src="@drawable/tenda2"
@@ -109,7 +109,6 @@
                 android:background="@color/white">
                 <ImageView
                     android:id="@+id/tnda4"
-                    android:onClick="tnda4"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:src="@drawable/tenda3"
@@ -136,6 +135,7 @@
                 android:orientation="vertical"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/tnda3"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:src="@drawable/tenda4"

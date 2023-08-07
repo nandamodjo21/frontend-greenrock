@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F0E9CC"
-    tools:context=".barang.activity.carril">
+    tools:context=".barang.activity.Carril">
 
     <ImageView
+        android:id="@+id/kemback"
         android:layout_width="35dp"
         android:layout_height="50dp"
         android:src="@drawable/arrow"
@@ -43,6 +44,7 @@
                 android:orientation="vertical"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/headlem"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:src="@drawable/headlam"
@@ -69,6 +71,7 @@
                 android:orientation="vertical"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/carril"
                     android:layout_width="130dp"
                     android:layout_height="90dp"
                     android:src="@drawable/carril"
@@ -102,6 +105,7 @@
                 android:orientation="vertical"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/matras"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:src="@drawable/matras"
@@ -128,6 +132,7 @@
                 android:orientation="vertical"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/hemok"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:src="@drawable/hemock"

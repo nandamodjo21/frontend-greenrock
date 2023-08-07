@@ -62,7 +62,7 @@ public class RincianList extends AppCompatActivity {
             if (status1 == 0) {
                 status.setText("Pesanan sedang diproses");
             } else {
-                status.setText("Status lainnya");
+                status.setText("Pesanan anda bisa dijemput");
             }
 
         }catch (JSONException e){

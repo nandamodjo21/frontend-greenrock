@@ -54,16 +54,16 @@
             android:layout_marginLeft="45dp"
             android:textStyle="bold"/>
 
-        <EditText
-            android:gravity="center"
-            android:id="@+id/nm_barang"
-            android:textSize="17dp"
+        <TextView
+            android:id="@+id/nmBarang"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:hint="Nama Barang"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="17dp"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:layout_marginLeft="45dp"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,16 +81,16 @@
             android:layout_marginLeft="60dp"
             android:textStyle="bold"/>
 
-        <EditText
-            android:gravity="center"
-            android:id="@+id/lm_sewa"
+        <TextView
+            android:id="@+id/lmSewa"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="17dp"
-            android:layout_marginLeft="25dp"
-            android:hint="Lama sewa"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:layout_marginLeft="45dp"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,16 +108,16 @@
             android:layout_marginLeft="100dp"
             android:textStyle="bold"/>
 
-        <EditText
-            android:gravity="center"
-            android:id="@+id/stok"
+        <TextView
+            android:id="@+id/stk"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="17dp"
-            android:layout_marginLeft="25dp"
-            android:hint="stok"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:layout_marginLeft="45dp"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,24 +128,51 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tanggal sewa   :"
+            android:text="Tanggal Sewa  :"
             android:textSize="17dp"
             android:gravity="center"
             android:textColor="@color/black"
-            android:layout_marginLeft="43dp"
+            android:layout_marginLeft="45dp"
             android:textStyle="bold"/>
 
-        <EditText
-            android:gravity="center"
-            android:id="@+id/tgl_sewa"
+        <TextView
+            android:id="@+id/tglSw"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="17dp"
-            android:layout_marginLeft="25dp"
-            android:hint="tanggal sewa"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:layout_marginLeft="45dp"
+            />
     </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="10dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Tanggal sewa   :"-->
+<!--            android:textSize="17dp"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginLeft="43dp"-->
+<!--            android:textStyle="bold"/>-->
+
+<!--        <EditText-->
+<!--            android:gravity="center"-->
+<!--            android:id="@+id/tgl_sewa"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:textSize="17dp"-->
+<!--            android:layout_marginLeft="25dp"-->
+<!--            android:hint="tanggal sewa"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textColorHint="@color/gray" />-->
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -167,20 +194,12 @@
             android:id="@+id/status1"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="pesanan sedang di proses"
+            android:text="Pesanan Anda Sedang Di Proses"
             android:textSize="17dp"
             android:gravity="center"
             android:textColor="@color/black"
             android:layout_marginLeft="30dp"/>
-        <EditText
-            android:gravity="center"
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:hint=""
-            android:textColor="#F0E9CC"
-            android:textColorHint="@color/gray" />
+
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/listdetail"

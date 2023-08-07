@@ -59,21 +59,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".barang.activity.carril"
+            android:name=".barang.activity.Carril"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".barang.activity.coking"
+            android:name=".barang.activity.Coking"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".barang.activity.tenda"
+            android:name=".barang.activity.Tenda"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

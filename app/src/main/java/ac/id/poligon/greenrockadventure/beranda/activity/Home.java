@@ -11,9 +11,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import ac.id.poligon.greenrockadventure.R;
-import ac.id.poligon.greenrockadventure.barang.activity.carril;
-import ac.id.poligon.greenrockadventure.barang.activity.coking;
-import ac.id.poligon.greenrockadventure.barang.activity.tenda;
+import ac.id.poligon.greenrockadventure.barang.activity.Carril;
+import ac.id.poligon.greenrockadventure.barang.activity.Coking;
+import ac.id.poligon.greenrockadventure.barang.activity.Tenda;
 import ac.id.poligon.greenrockadventure.detail.activity.ListSewa;
 import ac.id.poligon.greenrockadventure.login.activity.Login;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
@@ -52,15 +52,15 @@ public class Home extends AppCompatActivity {
         });
     }
     public void tenda(View view){
-        Intent tenda = new Intent(Home.this, tenda.class);
+        Intent tenda = new Intent(Home.this, Tenda.class);
         startActivity(tenda);
     }
     public void cooking(View view){
-        Intent cooking = new Intent(Home.this, coking.class);
+        Intent cooking = new Intent(Home.this, Coking.class);
         startActivity(cooking);
     }
     public void alat(View view){
-        Intent alat = new Intent(Home.this, carril.class);
+        Intent alat = new Intent(Home.this, Carril.class);
         startActivity(alat);
     }
 }
