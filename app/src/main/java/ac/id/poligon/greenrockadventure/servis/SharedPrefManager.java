@@ -31,13 +31,13 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public  boolean session(String id_user, String nama, String email, String role, String nik){
+    public  boolean session(String id_user, String email, String nama, String role, String nik){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_ID, id_user);
-        editor.putString(KEY_NAME, nama);
         editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_NAME, nama);
         editor.putString(KEY_LEVEL, role);
         editor.putString(KEY_NIK, nik);
 

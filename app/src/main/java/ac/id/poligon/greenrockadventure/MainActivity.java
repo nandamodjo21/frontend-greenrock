@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import ac.id.poligon.greenrockadventure.barang.activity.SpinnerActivity;
-import ac.id.poligon.greenrockadventure.beranda.activity.home;
+import ac.id.poligon.greenrockadventure.beranda.activity.Home;
+import ac.id.poligon.greenrockadventure.login.activity.Login;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run(){
-            startActivity(new Intent(getApplicationContext(), home.class));
+            if (SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+                startActivity(new Intent(getApplicationContext(), Home.class));
+                finish();
+            }
+            startActivity(new Intent(getApplicationContext(), Home.class));
             finish();
         }
         }, 2500L);

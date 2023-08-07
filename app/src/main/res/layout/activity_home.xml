@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     android:background="#F0E9CC"
-    tools:context=".beranda.activity.home">
+    tools:context=".beranda.activity.Home">
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:src="@drawable/l"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -21,17 +22,25 @@
 
     <TextView
         android:layout_width="350dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:text="    Selamat Datang Di Green Rock Adventure"
         android:textSize="34dp"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
         />
+    <LinearLayout
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/tenda"
         android:onClick="tenda"
         android:layout_width="340dp"
-        android:layout_height="44dp"
+        android:layout_height="49dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/btnlp"
         android:text="Tenda Kemping"
@@ -41,7 +50,7 @@
         android:id="@+id/cooking"
         android:onClick="cooking"
         android:layout_width="340dp"
-        android:layout_height="44dp"
+        android:layout_height="49dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/btnlp"
@@ -52,17 +61,29 @@
         android:id="@+id/alat"
         android:onClick="alat"
         android:layout_width="340dp"
-        android:layout_height="44dp"
+        android:layout_height="49dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/btnlp"
         android:text="Alat Lainnya"
         android:textColor="@color/white"
         android:textStyle="normal" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:onClick="alat"
+        android:layout_width="340dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnlp"
+        android:text="LOGOUT"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="25dp"

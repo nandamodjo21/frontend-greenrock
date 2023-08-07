@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F0E9CC"
-    tools:context=".detail.activity.detail1">
+    tools:context=".detail.activity.Details2">
 
     <ImageView
         android:layout_width="30dp"
@@ -30,12 +30,12 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:src="@drawable/tenda1"/>
+        android:src="@drawable/tenda2"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:text="Tenda 2 orang (Frame Fiber)"
+        android:text="Tenda 3 orang (Frame Fiber)"
         android:textSize="17dp"
         android:textColor="@color/black"
         android:gravity="center"
@@ -48,7 +48,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:text="Stock Barang     : 12"
+        android:text="Stock Barang     : 11"
         android:textColor="#FF000000"
         android:textSize="20dp"/>
 
@@ -58,21 +58,20 @@
         android:layout_gravity="center"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:text="Harga                  : Rp. 25.000 / Hari"
+        android:text="Harga                  : Rp. 30.000 / Hari"
         android:textColor="#FF000000"
         android:textSize="20dp"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pesan"
-            android:onClick="pesan"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btnlp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="35dp"
-            android:text="Pesan"
-            android:textColor="@color/white"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnpesan1"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btnlp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:text="Pesan"
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>

@@ -1,8 +1,11 @@
 package ac.id.poligon.greenrockadventure.detail.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -24,13 +28,15 @@ import org.json.JSONObject;
 import java.util.List;
 
 import ac.id.poligon.greenrockadventure.R;
-import ac.id.poligon.greenrockadventure.beranda.activity.home;
+import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 
 public class RincianSewa extends AppCompatActivity {
 
-    private EditText nm_barang,stok,lm_sewa,tg_sewa,tg_back,sts;
+    private EditText nm_barang,stok,lm_sewa,tg_sewa,sts;
     private TextView status,status2;
+    private String penyewa;
+    private AppCompatButton lst;
 
     List<String>list;
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
@@ -44,20 +50,42 @@ public class RincianSewa extends AppCompatActivity {
         stok = findViewById(R.id.stok);
         lm_sewa = findViewById(R.id.lm_sewa);
         tg_sewa = findViewById(R.id.tgl_sewa);
-        tg_back = findViewById(R.id.tgl_kembali);
         sts = findViewById(R.id.status);
         status = findViewById(R.id.status1);
 
 
+        lst = findViewById(R.id.listdetail);
+
+        lst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Total(penyewa);
+            }
+        });
 
         //disabled edittext
         nm_barang.setEnabled(false);
         stok.setEnabled(false);
         lm_sewa.setEnabled(false);
         tg_sewa.setEnabled(false);
-        tg_back.setEnabled(false);
 
         getData();
+    }
+
+    private void showPopup(RincianSewa activity, String title, String message){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
     private void getData(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -74,13 +102,14 @@ public class RincianSewa extends AppCompatActivity {
                         stok.setText(js.getString("stok"));
                         lm_sewa.setText(js.getString("lama_sewa"));
                         tg_sewa.setText(js.getString("tgl_sewa"));
-                        tg_back.setText(js.getString("tgl_kembali"));
                         String statusValue = js.getString("status");
+                        penyewa = js.getString("id_user");
+
                         sts.setText(statusValue);
                         if (statusValue.equals("0")){
                             status.setText("pesanan sedang diproses");
                         } else {
-                            status.setText("pesanan selesai");
+                            status.setText("Barang sukses disewa");
                         }
                     }
                     } catch (JSONException e) {
@@ -96,8 +125,36 @@ public class RincianSewa extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
     public void kmbli(View view){
-        Intent kmbli = new Intent(RincianSewa.this, home.class);
+        Intent kmbli = new Intent(RincianSewa.this, Home.class);
         startActivity(kmbli);
+    }
+
+    private void Total(String penyewa){
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, API_SERVER.url_total, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONArray jsonArray = response.getJSONArray("data");
+                    if (jsonArray.length() > 0){
+                        JSONObject data = jsonArray.getJSONObject(0);
+                        String n = data.getString("total_bayar");
+                        String rp = "rupiah";
+                        showPopup(RincianSewa.this, "TOTAL",n);
+                    }
+
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this); requestQueue.add(jsonObjectRequest);
     }
 
 

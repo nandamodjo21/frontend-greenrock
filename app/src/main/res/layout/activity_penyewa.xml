@@ -45,29 +45,6 @@
         android:hint="Lama sewa"
         android:inputType="text"
         android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/t_kembali"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:hint="tanggal kembali"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray"
-        android:inputType="date"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="tanggal"
-        android:textStyle="bold|normal"
-        android:background="@drawable/btnlp"
-        android:id="@+id/btntgl"
-        />
-
-
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/psn"

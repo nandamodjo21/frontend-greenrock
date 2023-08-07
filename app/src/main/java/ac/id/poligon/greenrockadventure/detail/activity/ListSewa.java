@@ -3,10 +3,14 @@ package ac.id.poligon.greenrockadventure.detail.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,13 +31,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import ac.id.poligon.greenrockadventure.R;
+import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 
 public class ListSewa extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
+    private Button back;
     private ListView listView;
     private ArrayAdapter<String> adapter;
+    private List<JSONObject> listData;
+
+    private String idPenyewa;
 
    List<String>lihat;
 
@@ -42,9 +51,12 @@ public class ListSewa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_sewa);
 
+        back = findViewById(R.id.backback);
+
 //        lihatlist = new ArrayList<HashMap<String,String>>();
         listView = findViewById(R.id.listdata);
         lihat = new ArrayList<>();
+        listData = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lihat);
 
         listView.setAdapter(adapter);
@@ -63,8 +75,10 @@ public class ListSewa extends AppCompatActivity {
                         JSONObject js = jsonArray.getJSONObject(i);
 
                         String namaBarang = js.getString("nama_barang");
-                        String lamaSewa = js.getString("lama_sewa");
-                        lihat.add(namaBarang + " : " + lamaSewa);
+
+
+                        listData.add(js);
+                        lihat.add(namaBarang);
                         Log.d("data",lihat.toString());
                     }
                     adapter.notifyDataSetChanged();
@@ -81,5 +95,28 @@ public class ListSewa extends AppCompatActivity {
             }
         });
         requestQueue.add(stringRequest);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+                JSONObject selected = listData.get(position);
+                String selectedBarang = selected.toString();
+                Intent intent = new Intent(ListSewa.this, RincianList.class);
+                intent.putExtra("selected_barang", selectedBarang);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Home.class));
+            }
+        });
+
+
     }
 }

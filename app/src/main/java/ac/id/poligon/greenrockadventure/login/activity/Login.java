@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ac.id.poligon.greenrockadventure.R;
+import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.penyewaan.activity.Penyewa;
 import ac.id.poligon.greenrockadventure.register.activity.Register;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
@@ -42,17 +43,6 @@ public class Login extends AppCompatActivity {
         btnlogin = findViewById(R.id.btnlogin);
         regis = findViewById(R.id.btnRegis);
 
-        regis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Register.class));
-            }
-        });
-
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
-            startActivity(new Intent(getApplicationContext(),Penyewa.class));
-            finish();
-        }
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +66,14 @@ public class Login extends AppCompatActivity {
 
 
         });
+
+        regis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Register.class));
+            }
+        });
+
 
     }
     private void acesslogin() throws JSONException {

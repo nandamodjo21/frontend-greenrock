@@ -39,10 +39,10 @@ import ac.id.poligon.greenrockadventure.servis.API_SERVER;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 
 public class Penyewa extends AppCompatActivity {
-    private DatePickerDialog datePickerDialog;
-    private SimpleDateFormat dateFormatter;
+//    private DatePickerDialog datePickerDialog;
+//    private SimpleDateFormat dateFormatter;
     private Spinner nama_barang;
-    private EditText stok,lama_sewa,tgl_kembali;
+    private EditText stok,lama_sewa;
     private AppCompatButton pesan;
     private ArrayAdapter<String> adapter;
     private List<String> data;
@@ -58,10 +58,10 @@ public class Penyewa extends AppCompatActivity {
         nama_barang = findViewById(R.id.n_barang);
         stok = findViewById(R.id.jml);
         lama_sewa = findViewById(R.id.l_sewa);
-        tgl_kembali = findViewById(R.id.t_kembali);
-        btnTgl = findViewById(R.id.btntgl);
+//        tgl_kembali = findViewById(R.id.t_kembali);
+//        btnTgl = findViewById(R.id.btntgl);
         pesan = findViewById(R.id.psn);
-        tgl_kembali.setEnabled(false);
+//        tgl_kembali.setEnabled(false);
 
         data = new ArrayList<>();
 
@@ -70,7 +70,7 @@ public class Penyewa extends AppCompatActivity {
         nama_barang.setAdapter(adapter);
 
 
-        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+//        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, API_SERVER.url_spin, new Response.Listener<String>() {
             @Override
@@ -101,26 +101,25 @@ public class Penyewa extends AppCompatActivity {
         });
         RequestQueue requestQueue1 = Volley.newRequestQueue(this); requestQueue1.add(stringRequest);
 
-        btnTgl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialogDate();
-            }
-        });
+//        btnTgl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showDialogDate();
+//            }
+//        });
         pesan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                nm_barang = nama_barang.getSelectedItem().toString().trim();
                 stokbarang = stok.getText().toString().trim();
                 lm_sewa = lama_sewa.getText().toString().trim();
-                tg_back = tgl_kembali.getText().toString().trim();
+//                tg_back = tgl_kembali.getText().toString().trim();
 
               if (stokbarang.equals("")){
                     stok.setError("data harus di isi");
                 } else if (lm_sewa.equals("")){
                     lama_sewa.setError("tanggal harus di isi");
-                } else if (tg_back.equals("")){
-                 tgl_kembali.setError("tanggal wajib diisi");
                 } else {
                     try {
                         aksiPesan();
@@ -132,28 +131,27 @@ public class Penyewa extends AppCompatActivity {
         });
     }
 
-    private void showDialogDate(){
-        Calendar calendar = Calendar.getInstance();
-
-        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                Calendar date = Calendar.getInstance();
-                date.set(year, month, dayOfMonth);
-                tgl_kembali.setText(dateFormatter.format(date.getTime()));
-            }
-        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
-    }
+//    private void showDialogDate(){
+//        Calendar calendar = Calendar.getInstance();
+//
+//        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//
+//                Calendar date = Calendar.getInstance();
+//                date.set(year, month, dayOfMonth);
+//                tgl_kembali.setText(dateFormatter.format(date.getTime()));
+//            }
+//        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+//        datePickerDialog.show();
+//    }
 
     private void aksiPesan() throws JSONException{
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("user", SharedPrefManager.getInstance(this).getKeyId());
-        jsonObject.put("barang",nama_barang);
+        jsonObject.put("barang",nm_barang);
         jsonObject.put("stok",stokbarang);
         jsonObject.put("lamaSewa",lm_sewa);
-        jsonObject.put("tglKembali",tg_back);
 
         System.out.println(jsonObject);
 
@@ -163,8 +161,14 @@ public class Penyewa extends AppCompatActivity {
                 try {
                     if (response.getInt("code")!=0){
 
-                        startActivity(new Intent(getApplicationContext(), RincianSewa.class));
-                        finish();
+                        String selectedBarang = nama_barang.getSelectedItem().toString();
+
+                        Intent intent = new Intent(getApplicationContext(),RincianSewa.class);
+                        intent.putExtra("nama_barang",selectedBarang);
+                        intent.putExtra("stok",stok.getText().toString());
+                        intent.putExtra("lama_sewa",lama_sewa.getText().toString());
+                        startActivity(intent);
+
                         Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();

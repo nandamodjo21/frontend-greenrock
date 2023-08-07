@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0E9CC"
+    android:gravity="center"
+    tools:context=".detail.activity.RincianList">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="Rincian Pesanan"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="50dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama barang   :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/textBarang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lama Sewa   :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="60dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textLama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stok      :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="100dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textStok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal sewa   :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="43dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textTgl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Bayar       :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="43dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="45dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="status pesanan    :"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/sts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:text="pesanan sedang di proses"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"/>
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:hint=""
+                    android:textColor="#F0E9CC"
+                    android:textColorHint="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="17dp">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:text="Kirim ke No Rek"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="25dp" />
+                <TextView
+                    android:layout_width="210dp"
+                    android:layout_height="30dp"
+                    android:text=" : 7486354567859(Bri)"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:text="Via Apk Dana"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="25dp" />
+                <TextView
+                    android:layout_width="210dp"
+                    android:layout_height="30dp"
+                    android:text=" : 082291799047"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tohome"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btnlp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Kembali"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -146,33 +146,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/gray" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tanggal kembali   :"
-            android:textSize="17dp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginLeft="22dp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:gravity="center"
-            android:id="@+id/tgl_kembali"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:hint="Tanggal Kembali"
-            android:textSize="17dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -192,7 +166,7 @@
         <TextView
             android:id="@+id/status1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="pesanan sedang di proses"
             android:textSize="17dp"
             android:gravity="center"
@@ -208,6 +182,17 @@
             android:textColor="#F0E9CC"
             android:textColorHint="@color/gray" />
     </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/listdetail"
+        android:onClick="kmbli"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btnstyle"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="detail"
+        android:textColor="@color/white"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -262,7 +247,7 @@
         android:background="@drawable/btnlp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:text="Kembali"
         android:textColor="@color/white"/>
 </LinearLayout>
