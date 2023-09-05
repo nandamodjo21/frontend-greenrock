@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +29,7 @@ import java.util.List;
 import ac.id.poligon.greenrockadventure.R;
 import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.servis.API_SERVER;
+import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 
 public class RincianSewa extends AppCompatActivity {
 
@@ -75,7 +75,10 @@ public class RincianSewa extends AppCompatActivity {
             }
         });
 
-      getData();
+        String id = SharedPrefManager.getInstance(this).getKeyId();
+
+        String apiLihat = API_SERVER.url_lihat + id;
+      getData(apiLihat);
     }
 
     private void showPopup(RincianSewa activity, String title, String message){
@@ -93,9 +96,9 @@ public class RincianSewa extends AppCompatActivity {
         alertDialog.show();
 
     }
-    private void getData(){
+    private void getData(String apiLihat){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, API_SERVER.url_lihat, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, apiLihat, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -109,7 +112,7 @@ public class RincianSewa extends AppCompatActivity {
                         lm_sewa.setText(js.getString("lama_sewa"));
                         tg_sw.setText(js.getString("tgl_sewa"));
                         String statusValue = js.getString("status");
-                        penyewa = js.getString("id_user");
+                        penyewa = js.getString("id_penyewa");
 
                         status.setText(statusValue);
                         if (statusValue.equals("0")){
@@ -136,7 +139,9 @@ public class RincianSewa extends AppCompatActivity {
     }
 
     private void Total(String penyewa){
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, API_SERVER.url_total, null, new Response.Listener<JSONObject>() {
+
+        String api = API_SERVER.url_total + penyewa;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, api, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
