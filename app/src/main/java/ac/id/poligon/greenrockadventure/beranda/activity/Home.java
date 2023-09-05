@@ -15,6 +15,7 @@ import ac.id.poligon.greenrockadventure.barang.activity.Carril;
 import ac.id.poligon.greenrockadventure.barang.activity.Coking;
 import ac.id.poligon.greenrockadventure.barang.activity.Tenda;
 import ac.id.poligon.greenrockadventure.detail.activity.ListSewa;
+import ac.id.poligon.greenrockadventure.detail.activity.profil;
 import ac.id.poligon.greenrockadventure.login.activity.Login;
 import ac.id.poligon.greenrockadventure.servis.SharedPrefManager;
 
@@ -22,7 +23,7 @@ public class Home extends AppCompatActivity {
 
     private AppCompatButton log;
 
-    private ImageButton lihat;
+    private ImageButton lihat,user;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -31,17 +32,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         lihat = findViewById(R.id.tampilan);
-        log = findViewById(R.id.logout);
+        user = findViewById(R.id.viewuser);
 
-        log.setOnClickListener(new View.OnClickListener() {
+        user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPrefManager.getInstance(getApplicationContext()).logout();
-                Toast.makeText(getApplicationContext(),"Anda berhasil Logout",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), profil.class));
                 finish();
             }
         });
+
 
         lihat.setOnClickListener(new View.OnClickListener() {
             @Override
