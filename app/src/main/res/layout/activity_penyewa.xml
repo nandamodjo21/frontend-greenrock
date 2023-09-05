@@ -25,26 +25,61 @@
         android:id="@+id/n_barang"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"/>
-    <EditText
-        android:id="@+id/jml"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:hint="Stok"
-        android:inputType="number"
-        android:textColorHint="@color/gray"
-        android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/l_sewa"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:textColorHint="@color/gray"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:hint="Lama sewa"
-        android:inputType="text"
-        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_marginLeft="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/jml"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="Stok"
+            android:inputType="number"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+
+            android:id="@+id/l_sewa"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:textColorHint="@color/gray"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:hint="Lama sewa"
+            android:inputType="text"
+            android:textColor="@color/black"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/HARI"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/psn"
