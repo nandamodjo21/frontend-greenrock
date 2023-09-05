@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:id="@+id/textinfoo"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
