@@ -99,12 +99,12 @@ public class Register extends AppCompatActivity {
                             != PackageManager.PERMISSION_GRANTED) {
 
                         // Should we show an explanation?
-                        if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) getApplicationContext(),
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(Register.this,
                                 Manifest.permission.CAMERA)) {
                             showAlert();
                         } else {
                             // No explanation needed, we can request the permission.
-                            ActivityCompat.requestPermissions((Activity) getApplicationContext(),
+                            ActivityCompat.requestPermissions(Register.this,
                                     new String[]{Manifest.permission.CAMERA},
                                     MY_PERMISSIONS_REQUEST_CAMERA);
                         }

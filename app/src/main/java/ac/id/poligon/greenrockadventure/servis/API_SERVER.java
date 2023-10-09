@@ -9,7 +9,7 @@ public class API_SERVER {
 //
 //    public static final String id_user = SharedPrefManager.getInstance(mct).getKeyId();
 //    public static final String nik = SharedPrefManager.getInstance(mct).getKeyNik();
-    public static final String root_url = "http://d417-182-1-137-147.ngrok-free.app/";
+    public static final String root_url = "http://9a96-114-142-175-51.ngrok-free.app/";
     public static final String url_login = root_url + "login";
     public static final String url_regis = root_url + "api/register";
     public static final String url_pesan = root_url + "sewa/add";

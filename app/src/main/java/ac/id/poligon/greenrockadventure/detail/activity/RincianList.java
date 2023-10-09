@@ -3,11 +3,14 @@ package ac.id.poligon.greenrockadventure.detail.activity;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+//import ac.id.poligon.greenrockadventure.Manifest;
 import ac.id.poligon.greenrockadventure.R;
 import ac.id.poligon.greenrockadventure.beranda.activity.Home;
 import ac.id.poligon.greenrockadventure.detail.activity.interfaces.I_penyewa;
@@ -113,6 +117,15 @@ public class RincianList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (checkCameraPermission()) {
+                    // Izin kamera sudah diberikan, jalankan perintah kamera di sini
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
+                } else {
+                    // Izin kamera belum diberikan, minta izin kamera
+                    requestCameraPermission();
+                }
+
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
 
@@ -193,18 +206,20 @@ public class RincianList extends AppCompatActivity {
 
 
     }
+    private boolean checkCameraPermission() {
+        int cameraPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        return cameraPermission == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestCameraPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == FILE_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Pengguna memilih berkas dari galeri.
-            Uri selectedFileUri = data.getData();
-            // Atur gambar sebagai sumber ImageView.
-            foto.setImageURI(selectedFileUri);
-
-        } else if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Gambar berhasil diambil dari kamera.
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
 
@@ -212,47 +227,12 @@ public class RincianList extends AppCompatActivity {
 
             foto.setImageBitmap(imageBitmap);
             saveImageToFile(imageBitmap);
+        } else  {
+            Toast.makeText(this, "Gagal menangkap gambar.", Toast.LENGTH_SHORT).show();
+
         }
     }
 
-    private void saveFileTo(Uri selectedFileUri) {
-        try {
-            ContentResolver contentResolver = getContentResolver();
-            InputStream inputStream = contentResolver.openInputStream(selectedFileUri);
-
-            // Tentukan direktori penyimpanan lokal.
-            File localDirectory = new File(getExternalFilesDir(null), "images"); // Ganti "images" sesuai dengan nama direktori yang Anda inginkan.
-
-            // Buat direktori jika belum ada.
-            if (!localDirectory.exists()) {
-                localDirectory.mkdirs();
-            }
-
-            // Buat nama file lokal berdasarkan timestamp.
-            String fileName = System.currentTimeMillis() + ".jpg"; // Ganti ekstensi file sesuai dengan jenis file yang Anda pilih.
-
-            // Buat path file lokal.
-            File localFile = new File(localDirectory, fileName);
-
-            // Salin isi file yang dipilih ke file lokal.
-            FileOutputStream outputStream = new FileOutputStream(localFile);
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, length);
-            }
-
-            // Tutup input stream dan output stream.
-            inputStream.close();
-            outputStream.close();
-
-            // Sekarang, file telah disalin ke direktori lokal. Anda dapat menggunakan path lokal ini untuk mengunggah file tersebut ke server atau melakukan operasi lain sesuai kebutuhan Anda.
-            String localFilePath = localFile.getAbsolutePath();
-            // Lakukan operasi yang sesuai di sini.
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void saveImageToFile(Bitmap imageBitmap) {
 
